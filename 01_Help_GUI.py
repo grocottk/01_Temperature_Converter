@@ -48,36 +48,26 @@ class Help:
         partner.help_button.config(state=DISABLED)
 
         # Sets up child window (or help box)
-        self.help_box = Toplevel(width=600, height=600,
-                                 bg=background,
-                                 pady=10)
+        self.help_box = Toplevel()
 
         # Set up GUI Frame
-        self.help_box.grid()
+        self.help_frame = Frame(self.help_box, bg=background)
+        self.help_frame.grid()
 
         # Set up help heading (Row 0)
-        self.help_heading = Label(self.converter_frame,
-                                  text="Help",
-                                  font=("Arial", "18", "bold"),
-                                  bg=background,
-                                  padx=10, pady=10)
-        self.help_heading.grid(row=0)
+        self.how_heading = Label(self.help_frame,
+                                 text="Help/Instructions",
+                                 font="arial 10 bold",
+                                 bg=background)
+        self.how_heading.grid(row=0)
 
         # Help text (Label, Row 1)
-        self.help_text = Label(self.converter_frame,
-                                  text="Help text goes here...",
-                                  font=("Arial", "12"),
-                                  bg=background,
-                                  padx=10, pady=10)
-        self.help_text.grid(row=1)
-
+        self.help_text = Label(self.help_frame, text="",
+                               justify=LEFT, width=40,
+                               bg=background, wrap=250)
+        self.help_text.grid(collumn=0, row=1)
+        
         # Dismiss button (Row 2)
-        self.help_dismiss_button = Button(self.converter_frame,
-                                          text="Dismiss",
-                                          font=("Arial", "18", "bold"),
-                                          padx=10, pady=10,
-                                          command=self.help)
-        self.help_dismiss_button.grid(row=2)
 
 # Main Routine
 if __name__ == "__main__":
