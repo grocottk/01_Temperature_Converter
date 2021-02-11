@@ -37,37 +37,52 @@ class Converter:
         get_help.help_text.configure(text="Help text goes here")
 
 
-class Help:
+if __name__ == '__main__':
+    class Help:
 
-    # Set up initial function
-    def __init__(self, partner):
+        # Set up initial function
+        def __init__(self, partner):
 
-        background = "orange"
+            background = "orange"
 
-        # Disable help button
-        partner.help_button.config(state=DISABLED)
+            # Disable help button
+            partner.help_button.config(state=DISABLED)
 
-        # Sets up child window (or help box)
-        self.help_box = Toplevel()
+            # Sets up child window (or help box)
+            self.help_box = Toplevel()
 
-        # Set up GUI Frame
-        self.help_frame = Frame(self.help_box, bg=background)
-        self.help_frame.grid()
+            # If users press cross at the top of the window, help closes and the help button 'releasrs'
+            self.help_box.protocol('WM_DELETE_WINDOW', partial(self.close_help, partner))
 
-        # Set up help heading (Row 0)
-        self.how_heading = Label(self.help_frame,
-                                 text="Help/Instructions",
-                                 font="arial 10 bold",
-                                 bg=background)
-        self.how_heading.grid(row=0)
+            # Set up GUI Frame
+            self.help_frame = Frame(self.help_box, bg=background)
+            self.help_frame.grid()
 
-        # Help text (Label, Row 1)
-        self.help_text = Label(self.help_frame, text="",
-                               justify=LEFT, width=40,
-                               bg=background, wrap=250)
-        self.help_text.grid(collumn=0, row=1)
-        
-        # Dismiss button (Row 2)
+            # Set up help heading (Row 0)
+            self.how_heading = Label(self.help_frame,
+                                     text="Help/Instructions",
+                                     font="arial 10 bold",
+                                     bg=background)
+            self.how_heading.grid(row=0)
+
+            # Help text (Label, Row 1)
+            self.help_text = Label(self.help_frame, text="",
+                                   justify=LEFT, width=40,
+                                   bg=background, wrap=250)
+            self.help_text.grid(row=1)
+
+            # Dismiss button (Row 2)
+            self.dismiss_button = Button(self.help_frame, text="Dismiss",
+                                         width =10, bg="pink", font="arial 10 bold",
+                                         command=partial(self.close_help, partner))
+            self.dismiss_button.grid(row=2, pady=10)
+
+        # Defining close_help function
+        def close_help(self, partner):
+
+            # Put help button back into a normal state..
+            partner.help_button.config(state=NORMAL)
+            self.help_box.destroy()
 
 # Main Routine
 if __name__ == "__main__":
