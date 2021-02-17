@@ -9,7 +9,7 @@ class Converter:
 
     def __init__(self, parent):
         # Formatting variables
-        background_color = "purple"
+        background_color = "medium purple"
 
         # Converter frame
         self.converter_frame = Frame(width=600, height=600, bg=background_color,
@@ -48,7 +48,7 @@ class Converter:
 
         self.to_c_button = Button(self.conversion_buttons_frame,
                                   text="To Centigrade", font="Arial 10 bold",
-                                  bg="green", padx=10, pady=10)
+                                  bg="lime", padx=10, pady=10)
         self.to_c_button.grid(row=0, column=0)
 
         self.to_f_button = Button(self.conversion_buttons_frame,
@@ -60,24 +60,23 @@ class Converter:
         self.answer_label = Label(self.converter_frame,
                                   text="Answer goes here...",
                                   font=("Arial", "10", "italic"),
-                                  wrap=250, justify=CENTER,
-                                  fg="green", bg=background_color,
-                                  padx=10, pady=10)
+                                  wrap=250, padx=10, pady=10,
+                                  fg="midnight blue", bg=background_color,)
         self.answer_label.grid(row=4)
 
         # History / Help button frame (Row 5)
         self.history_help_buttons_frame = Frame(self.converter_frame)
         self.history_help_buttons_frame.grid(row=5, pady=10)
 
-        self.histoy_button = Button(self.conversion_buttons_frame,
-                                    text="History", font="Arial 10 bold",
-                                    bg="pink", padx=10, pady=10)
-        self.histoy_button.grid(row=1, column=0)
+        self.calc_history_button = Button(self.history_help_buttons_frame,
+                                          text="History", font="Arial 10 bold",
+                                          bg="pink", width=10)
+        self.calc_history_button.grid(row=0, column=0)
 
-        self.help_button = Button(self.conversion_buttons_frame,
+        self.help_button = Button(self.history_help_buttons_frame,
                                   text="Help", font="Arial 10 bold",
-                                  bg="yellow", padx=10, pady=10)
-        self.help_button.grid(row=1, column=1)
+                                  bg="yellow", width=10)
+        self.help_button.grid(row=0, column=1)
 
 # Main Routine
 if __name__ == "__main__":
