@@ -1,6 +1,8 @@
 
-# This piece of code is made from scratch by Kahlil,
-# ... using a Test Plan as reference
+# Function takes in value, does conversion and puts answer into a list
+
+# (An initial version of this piece of code was made from scratch
+# by Kahlil, using a Test Plan as reference)
 
 # Define test_input list
 test_celsius_input = [0, 40, 100]
