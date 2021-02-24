@@ -1,24 +1,31 @@
 
-# Number Checker attempt
+# Number Checker answer (to check that a number is valid)
 
-# Defining validity messages
-valid = "This entry is valid"
-invalid = "This entry is not valid [Continue...]"
+# Number Checking Function:
 
-# Asks for number
-number = int(input("Please enter a number: "))
 
-# If a number is greater than absolute zero, it is valid.
-if number > -273:
-    print(valid)
+def temperature_check(low):
 
-# If a number is greater than absolute zero, it is valid.
-elif number > -459:
-    print(valid)
+    valid = False
+    while not valid:
 
-# Otherwise, the entry is invalid, and the program continues.
-else:
-    print(invalid)
+        try:
 
-# Print number for testing
-print(number)
+            response = float(input("Enter a number: "))
+
+            if response < low:
+                print("This temperature is valid (as it is lower than absolute zero)")
+            else:
+                return response
+
+        except ValueError:
+            print("Please enter a temperature")
+
+# Main Routine:
+
+# Run this code twice, in order to gain two valid responses in the test plan.
+number = temperature_check(-273)
+print("You chose {}".format(number))
+
+number = temperature_check(-459)
+print("You chose {}".format(number))
