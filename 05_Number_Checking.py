@@ -14,16 +14,18 @@ def temperature_check(low):
             response = float(input("Enter a number: "))
 
             if response < low:
-                print("This temperature is valid (as it is lower than absolute zero)")
+                print("This temperature is invalid (as it is lower than absolute zero)")
             else:
                 return response
 
         except ValueError:
-            print("Please enter a temperature")
+            print("Please enter a number (that corresponds to a temperature)")
 
 # Main Routine:
 
 # Run this code twice, in order to gain two valid responses in the test plan.
+
+
 number = temperature_check(-273)
 print("You chose {}".format(number))
 
