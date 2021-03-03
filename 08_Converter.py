@@ -4,6 +4,7 @@ from functools import partial  # To prevent unwanted windows (being created)
 
 import random
 
+
 class Converter:
 
     def __init__(self, parent):
@@ -11,8 +12,7 @@ class Converter:
         background_color = "medium purple"
 
         # Converter frame
-        self.converter_frame = Frame(bg=background_color,
-                                     pady=10)
+        self.converter_frame = Frame(bg=background_color, pady=10)
         self.converter_frame.grid()
 
         # Temperature converter heading (Row 0)
@@ -58,12 +58,12 @@ class Converter:
         self.to_f_button.grid(row=0, column=1)
 
         # Answer label (Row 4)
-        self.answer_label = Label(self.converter_frame,
-                                  text="Conversion goes here...",
-                                  font=("Arial", "10", "italic"),
-                                  wrap=250, padx=10, pady=10,
-                                  fg="midnight blue", bg=background_color,)
-        self.answer_label.grid(row=4)
+        self.converted_label = Label(self.converter_frame,
+                                    text="Conversion goes here...",
+                                    font=("Arial", "10", "italic"),
+                                    wrap=250, padx=10, pady=10,
+                                    fg="red", bg=background_color,)
+        self.converted_label.grid(row=4)
 
         # History / Help button frame (Row 5)
         self.history_help_buttons_frame = Frame(self.converter_frame)
@@ -80,9 +80,9 @@ class Converter:
         self.help_button.grid(row=0, column=1)
 
     # Defining Converter
-    def temp_convert(self, to):
+    def temp_convert(self, low):
 
-        print(to)
+        print(low)
 
         error = "pink" # Shows this colour when an entry has errors
 
@@ -92,47 +92,57 @@ class Converter:
         # Check amount is a valid number
         try:
             to_convert = float(to_convert)
-            # has_errors = "no"
+            has_errors = "no"
 
-        # Check and convert to degrees Fahrenheit
-        # if low == -273 and to_convert >= low:
-            fahrenheit = (to_convert * 9/5) + 32
-            to_convert = self.round_it(to_convert)
-            fahrenheit = self.round_it(fahrenheit)
-            answer = "{} degrees celsius is {} degrees fahrenheit".format(to_convert, fahrenheit)
+            # Check and convert to degrees Fahrenheit
+            if low == -273 and to_convert >= low:
+                fahrenheit = (to_convert * 9/5) + 32
+                to_convert = self.round_it(to_convert)
+                fahrenheit = self.round_it(fahrenheit)
+                answer = "{} degrees celsius is {} degrees fahrenheit".format(to_convert, fahrenheit)
 
-        # Check and convert to degrees Celsius
-        # elif low == -459 and to_convert >= low:
-            celsius = (to_convert - 32) * 5/9
-            to_convert = self.round_it(to_convert)
-            celsius = self.round_it(celsius)
-            answer = "{} degrees fahrenheit is {} degrees celsius".format(to_convert, celsius)
+            # Check and convert to degrees Celsius
+            elif low == -459 and to_convert >= low:
+                celsius = (to_convert - 32) * 5/9
+                to_convert = self.round_it(to_convert)
+                celsius = self.round_it(celsius)
+                answer = "{} degrees fahrenheit is {} degrees celsius".format(to_convert, celsius)
 
-        # If the entry is not a valid temperature
-        # else:
-            answer = "This temperature entry is too cold, and therefore not valid"
-            has_errors = "yes"
+            # If the entry is not a valid temperature
+            else:
+                answer = "This temperature entry is too cold, and therefore not valid"
+                has_errors = "yes"
 
-        # Round values
+            # Display converted value
 
-        # Display converted value
+            # If no error is present
+            if has_errors == "no":
+                self.converted_label.configure(text = answer, fg="red")
+                self.to_convert_entry.configure(bg="white")
 
-        # If no error is present
-        # if has_errors == "no":
-            self.converted_label.configure(text = answer, fg = "blue")
-            self.to_convert_entry.configure(bg = "white")
-
-        # If an error is present
-        # else:
-            self.converted_label.configure(text="Please enter a number.", fg="red")
-            self.to_convert_entry.configure(bg=error)
+            # If an error is present
+            else:
+                self.converted_label.configure(text="Please enter a number.", fg="red")
+                self.to_convert_entry.configure(bg=error)
 
         # Add answer to list for "History" purposes
 
         # Print an error message is applicable
         except ValueError:
             self.converted_label.configure(text="Please enter a number", fg="red")
-            # self.to_convert_entry.configure(bg=error)
+            self.to_convert_entry.configure(bg=error)
+
+    # Value rounding function
+
+    def round_it(self, to_round):
+
+        if to_round % 1 == 0:
+            rounded = int(to_round)
+
+        else:
+            rounded = round(to_round, 1)
+
+        return rounded
 
 # Main Routine
 if __name__ == "__main__":
