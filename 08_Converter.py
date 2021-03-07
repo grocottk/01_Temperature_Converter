@@ -59,10 +59,10 @@ class Converter:
 
         # Answer label (Row 4)
         self.converted_label = Label(self.converter_frame,
-                                    text="Conversion goes here...",
-                                    font=("Arial", "10", "italic"),
-                                    wrap=250, padx=10, pady=10,
-                                    fg="red", bg=background_color,)
+                                     text="Conversion goes here...",
+                                     font=("Arial", "10", "italic"),
+                                     wrap=250, padx=10, pady=10,
+                                     fg="white", bg=background_color,)
         self.converted_label.grid(row=4)
 
         # History / Help button frame (Row 5)
@@ -84,7 +84,7 @@ class Converter:
 
         print(low)
 
-        error = "pink" # Shows this colour when an entry has errors
+        error = "white"  # Shows this colour when an entry has errors
 
         # Retrieve amount entered into "Entry" field
         to_convert = self.to_convert_entry.get()
@@ -110,19 +110,20 @@ class Converter:
 
             # If the entry is not a valid temperature
             else:
-                answer = "This temperature entry is too cold, and therefore not valid"
+                answer = "This temperature entry is too cold, and therefore not valid."
                 has_errors = "yes"
 
             # Display converted value
 
             # If no error is present
             if has_errors == "no":
-                self.converted_label.configure(text = answer, fg="red")
+                self.converted_label.configure(text=answer, fg="lime")
                 self.to_convert_entry.configure(bg="white")
 
             # If an error is present
             else:
-                self.converted_label.configure(text="Please enter a number.", fg="red")
+                self.converted_label.configure(text=answer,
+                                               fg="pink")
                 self.to_convert_entry.configure(bg=error)
 
         # Add answer to list for "History" purposes
