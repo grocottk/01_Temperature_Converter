@@ -5,12 +5,17 @@
 
 import re
 
-# Name Error Checking Function (Checks if a name is valid)
+# Data to be outputted
+data = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh']
 
+# Name Error Checking (Checks if a name is valid)
 has_error = "yes"
 while has_error == "yes":
     print()
-    file_name = input("Enter a file name: ")
+
+    # Get file name, which can't be blank or invalid (though it is assumed that it is for now).
+    file_name = input("Enter a file name (file extension not required): ")
+
     has_error = "no"
 
     valid_character = "[A-Za-z0-9_]"
@@ -37,12 +42,6 @@ while has_error == "yes":
         print("You entered a valid file name")
 
 # Main section of build
-
-# Data to be outputted
-data = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh']
-
-# Get file name, which can't be blank or invalid (though it is assumed that it is for now).
-file_name = input("Enter a file name (file extension not required): ")
 
 # Add .txt suffix
 file_name = file_name + ".txt"
