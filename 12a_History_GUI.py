@@ -38,7 +38,7 @@ class Converter:
         self.history_button.grid(row=1)
 
     def history(self, calculation_history):
-        print("You asked for history")
+        # print("You asked for the history segment of the program.") [This line is no longer necessary]
         History(self, calculation_history)
 
 
@@ -73,7 +73,7 @@ class History:
         self.history_text = Label(self.history_frame,
                                   text="Here are the most recently completed calculations."
                                        " Please use the export button to create a text file"
-                                       " of all your calculations for this session.",
+                                       " of all your calculations for this session (if desired).",
                                   font="arial 10 italic",
                                   justify=LEFT, width=40, fg="orange",
                                   bg=background, wrap=250, padx=10, pady=10)
@@ -89,16 +89,25 @@ class History:
         # Generate string from list of calculations:
         history_string = ""
 
+        # Defining "empty string"
         if len(calculation_history) >= 7:
             for item in range(0, 7):
                 history_string += calculation_history[len(calculation_history)
                                                       - item - 1]+"\n"
 
+        else:
+            for item in calculation_history:
+                history_string += calculation_history[len(calculation_history) -
+                                                      calculation_history.index(item) - 1] + "\n"
+                self.history_text.config(text="Here are the most recently completed calculations."
+                                              " Please use the export button to create a text file"
+                                              " of the calculations for this session (if desired).")
+
         # Label to display calculation history to user
         self.calculation_label = Label(self.history_frame, text=history_string,
                                        bg=background, font="Arial 12", justify=LEFT)
         self.calculation_label.grid(row=2)
-        
+
         # Export / Dismiss buttons frame (Row 3)
         self.export_dismiss_frame = Frame(self.history_frame)
         self.export_dismiss_frame.grid(row=3, pady=10)
