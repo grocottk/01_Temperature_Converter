@@ -43,45 +43,73 @@ class Converter:
         get_history.history_text.configure(text="History text goes here")
 
 
-if __name__ == '__main__':
-    class History:
+class History:
 
-        # Set up initial function
-        def __init__(self, partner):
+    # Set up initial function
+    def __init__(self, partner):
 
-            background = "green"
+        background = "green"
 
-            # Disable history button
-            partner.history_button.config(state=DISABLED)
+        # Disable history button
+        partner.history_button.config(state=DISABLED)
 
-            # Sets up child window (or history box)
-            self.history_box = Toplevel()
+        # Sets up child window (or history box)
+        self.history_box = Toplevel()
 
-            # If users press cross at the top of the window, history closes and the history button 'releases'
-            self.history_box.protocol('WM_DELETE_WINDOW', partial(self.close_history, partner))
+        # If users press cross at the top of the window, history closes and the history button 'releases'
+        self.history_box.protocol('WM_DELETE_WINDOW', partial(self.close_history, partner))
 
-            # Set up GUI Frame
-            self.history_frame = Frame(self.history_box, bg=background)
-            self.history_frame.grid()
+        # Set up GUI Frame
+        self.history_frame = Frame(self.history_box, bg=background)
+        self.history_frame.grid()
 
-            # Set up history heading (Row 0)
-            self.how_heading = Label(self.history_frame,
-                                     text="History/Instructions",
-                                     font="arial 10 bold",
-                                     bg=background)
-            self.how_heading.grid(row=0)
+        # Set up history heading (Row 0)
+        self.how_heading = Label(self.history_frame,
+                                 text="Calculation History",
+                                 font="arial 19 bold",
+                                 bg=background)
+        self.how_heading.grid(row=0)
 
-            # history text (Label, Row 1)
-            self.history_text = Label(self.history_frame,
-                                      text="Here are the most recently completed calculations."
-                                           "Please use the export button to create a text file"
-                                           " of all your calculations for this session.",
-                                      font="arial 10 italic",
-                                      justify=LEFT, width=40, fg="light orange",
-                                      bg=background, wrap=250)
-            self.history_text.grid(row=1)
+        # history text (Label, Row 1)
+        self.history_text = Label(self.history_frame,
+                                  text="Here are the most recently completed calculations."
+                                       " Please use the export button to create a text file"
+                                       " of all your calculations for this session.",
+                                  font="arial 10 italic",
+                                  justify=LEFT, width=40, fg="orange",
+                                  bg=background, wrap=250, padx=10, pady=10)
+        self.history_text.grid(row=1)
 
-            # Show user their [calculation] history (Row 2)
+        # Dismiss button (Row 2)
+        self.dismiss_button = Button(self.history_frame, text="Dismiss",
+                                     width=10, bg="orange", font="arial 10 bold",
+                                     command=partial(self.close_history, partner))
+
+        # History output: (Row 2)
+
+        # Export / Dismiss buttons frame (Row 3)
+        self.export_dismiss_frame = Frame(self.history_frame)
+        self.export_dismiss_frame.grid(row=3, pady=10)
+
+        # Export Button
+        self.export_button = Button(self.export_dismiss_frame, text="Export",
+                                    font="Arial 12 bold")
+        self.export_button.grid(row=0, column=0)
+
+        # Dismiss Button
+        self.dismiss_button = Button(self.export_dismiss_frame, text="Dismiss",
+                                     # (use of 'partner' parameter from 01_Help_GUI.py)
+                                     font="Arial 12 bold", command=partial(self.close_history, partner))
+        self.dismiss_button.grid(row=0, column=1)
+
+    # Closes history
+    def close_history(self, partner):
+
+        # Put history button back to normal:
+        partner.history_button.config(state=NORMAL)
+        self.history_box.destroy()
+
+    # Show user their [calculation] history (Row 2)
 
 # Main Routine
 if __name__ == "__main__":
