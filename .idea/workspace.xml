@@ -36,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="12a_History_GUI.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/12a_History_GUI.py">
+      <file leaf-file-name="12b_Assembled_Converter.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/12b_Assembled_Converter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="129" column="34" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
+            <state relative-caret-position="442">
+              <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -65,6 +65,8 @@
         <option value="$PROJECT_DIR$/02b_Converter_GUI_Version_2.py" />
         <option value="$PROJECT_DIR$/08b_Converter_Version_2.py" />
         <option value="$PROJECT_DIR$/12a_History_GUI.py" />
+        <option value="$PROJECT_DIR$/02c_Converter_GUI_Version_3.py" />
+        <option value="$PROJECT_DIR$/12b_Assembled_Converter.py" />
       </list>
     </option>
   </component>
@@ -141,41 +143,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.12a_History_GUI">
-    <configuration default="false" name="10_Text_File_Output" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="01_Temperature_Converter" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/10_Text_File_Output.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="08b_Converter_Version_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="01_Temperature_Converter" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/08b_Converter_Version_2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.12b_Assembled_Converter">
     <configuration default="false" name="01_Help_GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -223,6 +191,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="01_Temperature_Converter" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../91906_7_Support_Files/03_all_colours_v2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="12b_Assembled_Converter" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="01_Temperature_Converter" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/12b_Assembled_Converter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="02c_Converter_GUI_Version_3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="01_Temperature_Converter" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/02c_Converter_GUI_Version_3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -362,19 +364,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.10_Text_File_Output" />
-      <item index="1" class="java.lang.String" itemvalue="Python.08b_Converter_Version_2" />
-      <item index="2" class="java.lang.String" itemvalue="Python.01_Help_GUI" />
-      <item index="3" class="java.lang.String" itemvalue="Python.12a_History_GUI" />
-      <item index="4" class="java.lang.String" itemvalue="Python.03_all_colours_v2" />
+      <item index="0" class="java.lang.String" itemvalue="Python.01_Help_GUI" />
+      <item index="1" class="java.lang.String" itemvalue="Python.12a_History_GUI" />
+      <item index="2" class="java.lang.String" itemvalue="Python.03_all_colours_v2" />
+      <item index="3" class="java.lang.String" itemvalue="Python.12b_Assembled_Converter" />
+      <item index="4" class="java.lang.String" itemvalue="Python.02c_Converter_GUI_Version_3" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.12a_History_GUI" />
-        <item index="1" class="java.lang.String" itemvalue="Python.03_all_colours_v2" />
-        <item index="2" class="java.lang.String" itemvalue="Python.01_Help_GUI" />
-        <item index="3" class="java.lang.String" itemvalue="Python.08b_Converter_Version_2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.10_Text_File_Output" />
+        <item index="0" class="java.lang.String" itemvalue="Python.12b_Assembled_Converter" />
+        <item index="1" class="java.lang.String" itemvalue="Python.02c_Converter_GUI_Version_3" />
+        <item index="2" class="java.lang.String" itemvalue="Python.12a_History_GUI" />
+        <item index="3" class="java.lang.String" itemvalue="Python.03_all_colours_v2" />
+        <item index="4" class="java.lang.String" itemvalue="Python.01_Help_GUI" />
       </list>
     </recent_temporary>
   </component>
@@ -398,7 +400,7 @@
     <frame x="-7" y="0" width="1134" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18783543" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27728087" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -492,7 +494,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -509,13 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/02b_Converter_GUI_Version_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -549,8 +544,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/12a_History_GUI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="129" column="34" selection-start-line="129" selection-start-column="34" selection-end-line="129" selection-end-column="34" />
+        <state relative-caret-position="178">
+          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="98" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02b_Converter_GUI_Version_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/02c_Converter_GUI_Version_3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding>
+            <marker date="1615939867149" expanded="false" signature="60:174" ph="import ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/12b_Assembled_Converter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
           <folding />
         </state>
       </provider>
