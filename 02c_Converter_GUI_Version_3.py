@@ -1,6 +1,3 @@
-
-# This version of the code is not very useful in practice
-
 from tkinter import *
 
 from functools import partial  # To prevent unwanted windows (being created)
