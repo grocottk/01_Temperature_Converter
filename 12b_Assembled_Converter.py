@@ -101,7 +101,7 @@ class History:
             for item in calculation_history:
                 history_string += calculation_history[len(calculation_history) -
                                                       calculation_history.index(item) - 1] + "\n"
-                self.history_text.config(text="Here are the most recently completed calculations."
+                self.history_text.config(text="Here are your complete calculations."
                                               " Please use the export button to create a text file"
                                               " of the calculations for this session (if desired).")
 
