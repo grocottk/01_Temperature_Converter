@@ -37,6 +37,9 @@ class Converter:
                                      command=lambda: self.history(self.all_calculations_list))
         self.history_button.grid(row=1)
 
+        if len(self.all_calculations_list) == 0:
+            self.history_button.config(state=DISABLED)
+
     def history(self, calculation_history):
         # print("You asked for the history segment of the program.") [This line is no longer necessary]
         History(self, calculation_history)

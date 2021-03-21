@@ -77,6 +77,7 @@ class Converter:
                                      bg="pink", width=10)
         self.history_button.grid(row=0, column=0)
 
+        # Disables the button if there are zero (0) entries in the list
         if len(self.all_calculations_list) == 0:
             self.history_button.config(state=DISABLED)
 
@@ -144,7 +145,6 @@ class Converter:
             self.to_convert_entry.configure(bg=error)
 
     # Value rounding function
-
     def round_it(self, to_round):
 
         if to_round % 1 == 0:
@@ -208,7 +208,7 @@ class History:
         history_string = ""
 
         # Defining "empty string"
-        if len(calculation_history) >= 7:
+        if len(calculation_history) > 7:
             for item in range(0, 7):
                 history_string += calculation_history[len(calculation_history)
                                                       - item - 1]+"\n"
