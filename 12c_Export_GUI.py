@@ -35,7 +35,6 @@ class Converter:
     def export(self):
         print("You asked for an export window")
         get_export = Export(self)
-        get_export.export_text.configure(text="Export text goes here")
 
 
 if __name__ == '__main__':
@@ -75,13 +74,18 @@ if __name__ == '__main__':
                                                              " the 'Save' button "
                                                              " to save your"
                                                              " calculation"
-                                                             " history to a real"
+                                                             " history to a text"
                                                              " file.",
                                      justify=LEFT, width=40,
                                      bg=background, wrap=250)
             self.export_text.grid(row=1)
 
-            # Warning text (Label, Row 2)
+            # File name entry box (Row 2)
+            self.file_name_entry = Entry(self.export_frame, width=20,
+                                         font="Arial 14 bold", justify=CENTER)
+            self.file_name_entry.grid(row=2, pady=10)
+
+            # Error message area (Row 3)
             self.export_text = Label(self.export_frame, text="If the file name"
                                                              " that you have "
                                                              " entered already"
@@ -94,16 +98,11 @@ if __name__ == '__main__':
                                      justify=LEFT, bg="yellow", fg="green",
                                      font="Arial 10 italic", wrap=200,
                                      padx=10, pady=10)
-            self.export_text.grid(row=2, pady=10)
-
-            # File name entry box (Row 3)
-            self.file_name_entry = Entry(self.export_frame, width=20,
-                                         font="Arial 14 bold", justify=CENTER)
-            self.file_name_entry.grid(row=1, pady=10)
+            self.export_text.grid(row=3, pady=10)
 
             # Save/Cancel Button(s) Frame (Row 4)
             self.save_cancel_frame = Frame(self.export_frame)
-            self.save_cancel_frame.grid(row=5, pady=10)
+            self.save_cancel_frame.grid(row=4, pady=10)
 
             # Save and Cancel Buttons (Row 0 of the "save_cancel_frame").
             # ... This portion of the code has been inspired by the file
@@ -115,18 +114,12 @@ if __name__ == '__main__':
                                       bg="pink", width=10)
             self.save_button.grid(row=0, column=0)
 
-            self.cancel_button = Button(self.save_cancel_frame,
+            self.dismiss_button = Button(self.save_cancel_frame,
                                         font="Arial 10 bold",
-                                        text="Cancel",
+                                        text="Dismiss",
                                         command=partial(self.close_export, partner),
                                         bg="yellow", width=10)
-            self.cancel_button.grid(row=0, column=1)
-
-            # Dismiss button (Row 2)
-            self.dismiss_button = Button(self.export_frame, text="Dismiss",
-                                         width=10, bg="pink", font="arial 10 bold",
-                                         command=partial(self.close_export, partner))
-            self.dismiss_button.grid(row=2, pady=10)
+            self.dismiss_button.grid(row=0, column=1)
 
         # Defining close_export function
         def close_export(self, partner):
