@@ -56,7 +56,15 @@ class Converter:
     def help(self):
         print("You asked for help")
         get_help = Help(self)
-        get_help.help_text.configure(text="Help text goes here")
+        get_help.help_text.configure(text="Please enter a number in the box "
+                                          "and then push one of the buttons "
+                                          "to convert the number to either "
+                                          "degrees Celsius or degrees Fahrenheit.\n\n"
+                                          "The Calculation History area shows "
+                                          "up to seven (7) past calculations "
+                                          "(with the most recent entries at the top).\n\n"
+                                          "You can also export your full "
+                                          "calculation history to a text file if desired.")
 
     def history(self, calculation_history):
         # print("You asked for the history segment of the program.") [This line is no longer necessary]
@@ -100,7 +108,7 @@ if __name__ == '__main__':
 
             # Dismiss button (Row 2)
             self.dismiss_button = Button(self.help_frame, text="Dismiss",
-                                         width =10, bg="pink", font="arial 10 bold",
+                                         width=10, bg="pink", font="arial 10 bold",
                                          command=partial(self.close_help, partner))
             self.dismiss_button.grid(row=2, pady=10)
 
