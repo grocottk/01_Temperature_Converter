@@ -32,19 +32,84 @@ class Converter:
                                           padx=10, pady=10)
         self.temp_converter_label.grid(row=0)
 
-        # History Button (Row 1)
+        # History / Help button frame (Row [1]) [From 02b_Converter_GUI_Version_2.py]
+        self.history_help_buttons_frame = Frame(self.converter_frame)
+        self.history_help_buttons_frame.grid(row=1)
+
+        # History Button (Row 1, Column 0)
         self.history_button = Button(self.converter_frame, text="History",
                                      font=("Arial", "12"),
                                      padx=10, pady=10,
                                      command=lambda: self.history(self.all_calculations_list))
-        self.history_button.grid(row=1)
+        self.history_button.grid(row=1, column=0)
 
         if len(self.all_calculations_list) == 0:
             self.history_button.config(state=DISABLED)
 
+        # Help Button (Row 1, Column 1) [From "01_Help_GUI.py"]
+        self.help_button = Button(self.converter_frame, text="Help",
+                                  font=("Arial", "12"),
+                                  padx=10, pady=10,
+                                  command=self.help)
+        self.help_button.grid(row=1, column=1)
+
+    def help(self):
+        print("You asked for help")
+        get_help = Help(self)
+        get_help.help_text.configure(text="Help text goes here")
+
     def history(self, calculation_history):
         # print("You asked for the history segment of the program.") [This line is no longer necessary]
         History(self, calculation_history)
+
+
+# Help Class (from "01_Help_GUI.py")
+if __name__ == '__main__':
+    class Help:
+
+        # Set up initial function
+        def __init__(self, partner):
+
+            background = "orange"
+
+            # Disable help button
+            partner.help_button.config(state=DISABLED)
+
+            # Sets up child window (or help box)
+            self.help_box = Toplevel()
+
+            # If users press cross at the top of the window, help closes and the help button 'releas[e]s'
+            self.help_box.protocol('WM_DELETE_WINDOW', partial(self.close_help, partner))
+
+            # Set up GUI Frame
+            self.help_frame = Frame(self.help_box, bg=background)
+            self.help_frame.grid()
+
+            # Set up help heading (Row 0)
+            self.how_heading = Label(self.help_frame,
+                                     text="Help/Instructions",
+                                     font="arial 10 bold",
+                                     bg=background)
+            self.how_heading.grid(row=0)
+
+            # Help text (Label, Row 1)
+            self.help_text = Label(self.help_frame, text="",
+                                   justify=LEFT, width=40,
+                                   bg=background, wrap=250)
+            self.help_text.grid(row=1)
+
+            # Dismiss button (Row 2)
+            self.dismiss_button = Button(self.help_frame, text="Dismiss",
+                                         width =10, bg="pink", font="arial 10 bold",
+                                         command=partial(self.close_help, partner))
+            self.dismiss_button.grid(row=2, pady=10)
+
+        # Defining close_help function
+        def close_help(self, partner):
+
+            # Put help button back into a normal state..
+            partner.help_button.config(state=NORMAL)
+            self.help_box.destroy()
 
 
 class History:
