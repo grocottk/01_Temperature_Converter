@@ -4,6 +4,8 @@ from functools import partial  # To prevent unwanted windows (being created)
 
 import random
 
+import re
+
 
 class Converter:
 
@@ -190,7 +192,12 @@ class Export:
                                      font="Arial 14 bold", justify=CENTER)
         self.file_name_entry.grid(row=2, pady=10)
 
-        # Error message area (Row 3)
+        # Error message labels (Row 3) [This segment is initially blank]
+        self.save_error_label = Label(self.export_frame, text="", fg="red",
+                                      bg=background)
+        self.save_error_label.grid(row=3)
+
+        # Error message area (Row 4)
         self.export_text = Label(self.export_frame, text="If the file name"
                                                          " that you have "
                                                          " entered already"
@@ -203,11 +210,11 @@ class Export:
                                  justify=LEFT, bg="yellow", fg="green",
                                  font="Arial 10 italic", wrap=200,
                                  padx=10, pady=10)
-        self.export_text.grid(row=3, pady=10)
+        self.export_text.grid(row=4, pady=10)
 
-        # Save/Cancel Button(s) Frame (Row 4)
+        # Save/Cancel Button(s) Frame (Row 5)
         self.save_cancel_frame = Frame(self.export_frame)
-        self.save_cancel_frame.grid(row=4, pady=10)
+        self.save_cancel_frame.grid(row=5, pady=10)
 
         # Save and Cancel Buttons (Row 0 of the "save_cancel_frame").
         # ... This portion of the code has been inspired by the file
@@ -216,6 +223,7 @@ class Export:
         # Save Button
         self.save_button = Button(self.save_cancel_frame,
                                   text="Save", font="Arial 10 bold",
+                                  command=partial(lambda: self.save_history(partner, calculation_history)),
                                   bg="pink", width=10)
         self.save_button.grid(row=0, column=0)
 
@@ -225,6 +233,60 @@ class Export:
                                      command=partial(self.close_export, partner),
                                      bg="yellow", width=10)
         self.dismiss_button.grid(row=0, column=1)
+
+    # Defining "save_history" function
+    def save_history(self, partner, calculation_history):
+
+        # Uses a regular expression to check of a file name is valid
+        valid_character = "[A-Za-z0-9_]"
+        has_error = "no"
+
+        file_name = self.file_name_entry.get()
+        print(file_name)
+
+        for letter in file_name:
+            if re.match(valid_character, letter):
+                continue
+
+            elif letter == " ":
+                problem = "(Spaces are not allowed in this context)"
+
+            else:
+                problem = ("(The character of {} is not alowed in this context)".format(letter))
+
+            has_error = "yes"
+            break
+
+        if file_name == "":
+            problem = "The file name for this cannot be blank"
+            has_error = "yes"
+
+        if has_error == "yes":
+
+            # Display Error Message
+            self.save_error_label.config(text="Invalid file name - {}".format(problem))
+
+            # Change entry box background to pink
+            self.file_name_entry.config(bg="orange")
+            print()
+
+        else:
+            # If there are no errors, generate text file and then close dialogue
+            # Add .txt suffix to file name
+            file_name = file_name + ".txt"
+
+            # Create file to hold data
+            f = open(file_name, "w+")
+
+            # Add new line at end of each item
+            for item in calculation_history:
+                f.write(item + "\n")
+
+            # Close file
+            f.close()
+
+            # Close dialogue
+            self.close_export(partner)
 
     # Defining close_export function
     def close_export(self, partner):
