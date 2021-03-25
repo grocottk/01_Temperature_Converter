@@ -1,0 +1,4 @@
+1 degrees fahrenheit is -17.2 degrees celsius
+1 degrees celsius is 33.8 degrees fahrenheit
+500 degrees fahrenheit is 260 degrees celsius
+500 degrees celsius is 932 degrees fahrenheit

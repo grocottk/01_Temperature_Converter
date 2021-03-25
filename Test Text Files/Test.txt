@@ -1,3 +1,4 @@
-1 degrees fahrenheit is -17.2 degrees celsius
-2 degrees celsius is 35.6 degrees fahrenheit
 3 degrees fahrenheit is -16.1 degrees celsius
+3 degrees celsius is 37.4 degrees fahrenheit
+4.3 degrees fahrenheit is -15.4 degrees celsius
+4.3 degrees celsius is 39.7 degrees fahrenheit

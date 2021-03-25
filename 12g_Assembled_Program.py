@@ -49,13 +49,13 @@ class Converter:
         self.conversion_buttons_frame.grid(row=3, pady=10)
 
         self.to_c_button = Button(self.conversion_buttons_frame,
-                                  text="To Celsius", font="Arial 10 bold",
-                                  bg="lime", padx=10, pady=10,
+                                  text="Fahrenheit to Celsius", font="Arial 10 bold",
+                                  bg="green", padx=10, pady=10,
                                   command=lambda: self.temp_convert(-459))
         self.to_c_button.grid(row=0, column=0)
 
         self.to_f_button = Button(self.conversion_buttons_frame,
-                                  text="To Fahrenheit", font="Arial 10 bold",
+                                  text="Celsius to Fahrenheit", font="Arial 10 bold",
                                   bg="orange", padx=10, pady=10,
                                   command=lambda: self.temp_convert(-273))
         self.to_f_button.grid(row=0, column=1)
@@ -141,7 +141,7 @@ class Converter:
 
             # If no error is present
             if has_errors == "no":
-                self.converted_label.configure(text=answer, fg="lime")
+                self.converted_label.configure(text=answer, fg="green")
                 self.to_convert_entry.configure(bg="white")
 
             # If an error is present
@@ -174,6 +174,7 @@ class Converter:
     def history(self, calculation_history):
         # print("You asked for the history segment of the program.") [This line is no longer necessary]
         History(self, calculation_history)
+
 
 # Help Class (from "01_Help_GUI.py")
 if __name__ == '__main__':
