@@ -141,7 +141,7 @@ class Converter:
 
             # If no error is present
             if has_errors == "no":
-                self.converted_label.configure(text=answer, fg="green")
+                self.converted_label.configure(text=answer, fg="pale green")
                 self.to_convert_entry.configure(bg="white")
 
             # If an error is present
@@ -230,7 +230,7 @@ class History:
     # Set up initial function
     def __init__(self, partner, calculation_history):
 
-        background = "green"
+        background = "pale green"
 
         # Disable history button
         partner.history_button.config(state=DISABLED)
@@ -384,7 +384,7 @@ class Export:
                                                          " be replaced with"
                                                          " your calculation"
                                                          " history",
-                                 justify=LEFT, bg="yellow", fg="green",
+                                 justify=LEFT, bg="yellow", fg="pale green",
                                  font="Arial 10 italic", wrap=200,
                                  padx=10, pady=10)
         self.export_text.grid(row=4, pady=10)
@@ -454,6 +454,9 @@ class Export:
 
             # Create file to hold data
             f = open(file_name, "w+")
+
+            # Heading for text file...
+            f.write("Temperature Conversion History\n\n")
 
             # Add new line at end of each item
             for item in calculation_history:
